@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 42 38% 96%;
+  --foreground: 206 34% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 206 34% 11%;
+  --border: 28 24% 84%;
+  --border-strong: 204 20% 72%;
+  --primary: 196 70% 24%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 24 89% 60%;
+  --accent-foreground: 18 52% 14%;
+  --muted: 42 27% 91%;
+  --muted-foreground: 208 15% 38%;
+  --ring: 196 70% 28%;
+  --danger: 6 72% 52%;
+  --shadow-soft: 0 22px 60px rgba(37, 48, 57, 0.08);
+  --shadow-card: 0 16px 40px rgba(25, 41, 54, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(247, 183, 113, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(60, 139, 158, 0.18), transparent 24%),
+    linear-gradient(180deg, #fbf8f1 0%, #f4efe4 100%);
+  color: hsl(var(--foreground));
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(26, 53, 69, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 53, 69, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 92%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(65, 155, 177, 0.24);
+}
+
+.font-display {
+  font-family: "Newsreader", Georgia, serif;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 185, 163, 0.7);
+  box-shadow: var(--shadow-card);
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(19, 35, 46, 0.16) 1px, transparent 0);
+  background-size: 12px 12px;
+}
+
+.scroll-fade {
+  mask-image: linear-gradient(180deg, transparent 0, black 4%, black 100%);
+}
+
+.panel-surface {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(204, 190, 171, 0.84);
+  border-radius: 1.5rem;
+}
+
+.rich-content {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: hsl(var(--foreground));
+}
+
+.rich-content h1,
+.rich-content h2,
+.rich-content h3 {
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rich-content p,
+.rich-content ul,
+.rich-content ol {
+  margin: 0.5rem 0;
+}
+
+.rich-content ul,
+.rich-content ol {
+  padding-left: 1.25rem;
+}
+
+.rich-content a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  height: 1rem;
+  width: 1rem;
+  accent-color: hsl(var(--primary));
+  cursor: pointer;
+}
+
+input[type="file"] {
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 0.5rem;
+  border: 0;
+  border-radius: 0.65rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.35rem 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
